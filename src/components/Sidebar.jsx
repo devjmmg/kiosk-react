@@ -1,7 +1,10 @@
-import { categories } from "../data/categories"
+import useKiosk from "../hooks/useKiosk"
 import Category from "./Category"
 
 export default function Sidebar() {
+
+    const { categories } = useKiosk();
+
     return (
         <div className="flex flex-col justify-between h-full p-5">
             <div>
