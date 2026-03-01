@@ -101,140 +101,140 @@ const products = [
         nombre: "Paquete de 3 donas de Chocolate",
         precio: 39.9,
         imagen: "donas_01",
-        categoria_id: 4,
+        categoria_id: 5,
         id: 15
     },
     {
         nombre: "Paquete de 3 donas Glaseadas",
         precio: 39.9,
         imagen: "donas_02",
-        categoria_id: 4,
+        categoria_id: 5,
         id: 16
     },
     {
         nombre: "Dona de Fresa ",
         precio: 19.9,
         imagen: "donas_03",
-        categoria_id: 4,
+        categoria_id: 5,
         id: 17
     },
     {
         nombre: "Dona con Galleta de Chocolate ",
         precio: 19.9,
         imagen: "donas_04",
-        categoria_id: 4,
+        categoria_id: 5,
         id: 18
     },
     {
         nombre: "Dona glass con Chispas Sabor Fresa ",
         precio: 19.9,
         imagen: "donas_05",
-        categoria_id: 4,
+        categoria_id: 5,
         id: 19
     },
     {
         nombre: "Dona glass con Chocolate ",
         precio: 19.9,
         imagen: "donas_06",
-        categoria_id: 4,
+        categoria_id: 5,
         id: 20
     },
     {
         nombre: "Dona de Chocolate con MÁS Chocolate ",
         precio: 19.9,
         imagen: "donas_07",
-        categoria_id: 4,
+        categoria_id: 5,
         id: 21
     },
     {
         nombre: "Paquete de 3 donas de Chocolate ",
         precio: 39.9,
         imagen: "donas_08",
-        categoria_id: 4,
+        categoria_id: 5,
         id: 22
     },
     {
         nombre: "Paquete de 3 donas con Vainilla y Chocolate ",
         precio: 39.9,
         imagen: "donas_09",
-        categoria_id: 4,
+        categoria_id: 5,
         id: 23
     },
     {
         nombre: "Paquete de 6 Donas",
         precio: 69.9,
         imagen: "donas_10",
-        categoria_id: 4,
+        categoria_id: 5,
         id: 24
     },
     {
         nombre: "Paquete de 3 Variadas",
         precio: 39.9,
         imagen: "donas_11",
-        categoria_id: 4,
+        categoria_id: 5,
         id: 25
     },
     {
         nombre: "Dona Natural con Chocolate",
         precio: 19.9,
         imagen: "donas_12",
-        categoria_id: 4,
+        categoria_id: 5,
         id: 26
     },
     {
         nombre: "Paquete de 3 Donas de Chocolate con Chispas",
         precio: 39.9,
         imagen: "donas_13",
-        categoria_id: 4,
+        categoria_id: 5,
         id: 27
     },
     {
         nombre: "Dona Chocolate y Coco",
         precio: 19.9,
         imagen: "donas_14",
-        categoria_id: 4,
+        categoria_id: 5,
         id: 28
     },
     {
         nombre: "Paquete Galletas de Chocolate",
         precio: 29.9,
         imagen: "galletas_01",
-        categoria_id: 6,
+        categoria_id: 7,
         id: 29
     },
     {
         nombre: "Paquete Galletas de Chocolate y Avena",
         precio: 39.9,
         imagen: "galletas_02",
-        categoria_id: 6,
+        categoria_id: 7,
         id: 30
     },
     {
         nombre: "Paquete de Muffins de Vainilla",
         precio: 39.9,
         imagen: "galletas_03",
-        categoria_id: 6,
+        categoria_id: 7,
         id: 31
     },
     {
         nombre: "Paquete de 4 Galletas de Avena",
         precio: 24.9,
         imagen: "galletas_04",
-        categoria_id: 6,
+        categoria_id: 7,
         id: 32
     },
     {
         nombre: "Galletas de Mantequilla Variadas",
         precio: 39.9,
         imagen: "galletas_05",
-        categoria_id: 6,
+        categoria_id: 7,
         id: 33
     },
     {
         nombre: "Galletas de sabores frutales",
         precio: 39.9,
         imagen: "galletas_06",
-        categoria_id: 6,
+        categoria_id: 7,
         id: 34
     },
     {
@@ -282,134 +282,134 @@ const products = [
     {
         nombre: "Hot Dog Especial",
         precio: 49.9,
-        imagen: "hamburguesas_07",
-        categoria_id: 2,
+        imagen: "hotdog_01",
+        categoria_id: 3,
         id: 41
     },
     {
         nombre: "Paquete 2 Hot Dogs",
         precio: 69.9,
-        imagen: "hamburguesas_08",
-        categoria_id: 2,
+        imagen: "hotdog_02",
+        categoria_id: 3,
         id: 42
     },
     {
         nombre: "4 Rebanadas de Pay de Queso",
         precio: 69.9,
         imagen: "pastel_01",
-        categoria_id: 5,
+        categoria_id: 6,
         id: 43
     },
     {
         nombre: "Waffle Especial",
         precio: 49.9,
         imagen: "pastel_02",
-        categoria_id: 5,
+        categoria_id: 6,
         id: 44
     },
     {
         nombre: "Croissants De la casa",
         precio: 39.9,
         imagen: "pastel_03",
-        categoria_id: 5,
+        categoria_id: 6,
         id: 45
     },
     {
         nombre: "Pay de Queso",
         precio: 19.9,
         imagen: "pastel_04",
-        categoria_id: 5,
+        categoria_id: 6,
         id: 46
     },
     {
         nombre: "Pastel de Chocolate",
         precio: 29.9,
         imagen: "pastel_05",
-        categoria_id: 5,
+        categoria_id: 6,
         id: 47
     },
     {
         nombre: "Rebanada Pastel de Chocolate",
         precio: 29.9,
         imagen: "pastel_06",
-        categoria_id: 5,
+        categoria_id: 6,
         id: 48
     },
     {
         nombre: "Pizza Spicy con Doble Queso",
         precio: 69.9,
         imagen: "pizzas_01",
-        categoria_id: 3,
+        categoria_id: 4,
         id: 49
     },
     {
         nombre: "Pizza Jamón y Queso",
         precio: 69.9,
         imagen: "pizzas_02",
-        categoria_id: 3,
+        categoria_id: 4,
         id: 50
     },
     {
         nombre: "Pizza Doble Queso",
         precio: 69.9,
         imagen: "pizzas_03",
-        categoria_id: 3,
+        categoria_id: 4,
         id: 51
     },
     {
         nombre: "Pizza Especial de la Casa",
         precio: 69.9,
         imagen: "pizzas_04",
-        categoria_id: 3,
+        categoria_id: 4,
         id: 52
     },
     {
         nombre: "Pizza Chorizo",
         precio: 69.9,
         imagen: "pizzas_05",
-        categoria_id: 3,
+        categoria_id: 4,
         id: 53
     },
     {
         nombre: "Pizza Hawaiana",
         precio: 69.9,
         imagen: "pizzas_06",
-        categoria_id: 3,
+        categoria_id: 4,
         id: 54
     },
     {
         nombre: "Pizza Tocino",
         precio: 69.9,
         imagen: "pizzas_07",
-        categoria_id: 3,
+        categoria_id: 4,
         id: 55
     },
     {
         nombre: "Pizza Vegetales y Queso",
         precio: 69.9,
         imagen: "pizzas_08",
-        categoria_id: 3,
+        categoria_id: 4,
         id: 56
     },
     {
         nombre: "Pizza Pepperoni y Queso",
         precio: 69.9,
         imagen: "pizzas_09",
-        categoria_id: 3,
+        categoria_id: 4,
         id: 57
     },
     {
         nombre: "Pizza Aceitunas y Queso",
         precio: 69.9,
         imagen: "pizzas_10",
-        categoria_id: 3,
+        categoria_id: 4,
         id: 58
     },
     {
         nombre: "Pizza Queso, Jamón y Champiñones",
         precio: 69.9,
         imagen: "pizzas_11",
-        categoria_id: 3,
+        categoria_id: 4,
         id: 59
     }
 ]

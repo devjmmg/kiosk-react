@@ -36,7 +36,7 @@ export default function layout() {
                     <Outlet />
                 </main>
                 
-                <aside className='w-72 overflow-auto'>
+                <aside className='w-72'>
                     <Summary />
                 </aside>
             

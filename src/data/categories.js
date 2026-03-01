@@ -10,24 +10,29 @@ const categories = [
         id: 2
     },
     {
+        icono: "hotdog",
+        nombre: "Hot dog",
+        id: 3
+    },
+    {
         icono: "pizza",
         nombre: "Pizzas",
-        id: 3
+        id: 4
     },
     {
         icono: "dona",
         nombre: "Donas",
-        id: 4
+        id: 5
     },
     {
         icono: "pastel",
         nombre: "Pasteles",
-        id: 5
+        id: 6
     },
     {
         icono: "galletas",
         nombre: "Galletas",
-        id: 6
+        id: 7
     }
 ]
 

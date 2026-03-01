@@ -8,7 +8,7 @@ export default function Product({product}) {
     return (
         <>
             <div className="border border-amber-500 rounded p-5 shadow bg-white">
-                <img src={`../../public/img/${imagen}.jpg`} className="w-full" alt={`Imagen ${nombre}`} />
+                <img src={`../../public/img/${imagen}.jpg`} className="w-full" alt={`Imagen ${nombre}`} loading="lazy" />
                 <div className="p-5">
                     <h3 className="text-center text-sm font-medium">{nombre}</h3>
                     <p className="text-center font-bold mt-3 text-2xl text-amber-500">${precio}</p>
