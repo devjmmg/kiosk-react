@@ -1,22 +1,51 @@
 import { Outlet } from 'react-router-dom';
+import Modal from 'react-modal';
 import Sidebar from '../components/Sidebar';
 import Summary from '../components/Summary';
+import useKiosk from '../hooks/useKiosk';
+import ModalProduct from '../components/ModalProduct';
+
+const customStyles = {
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)',
+    },
+    overlay: {
+        backgroundColor: 'rgba(0, 0, 0, 0.70)' // fondo más oscuro
+    }
+};
+
+Modal.setAppElement('#root');
 
 export default function layout() {
+    
+    const { modal } = useKiosk();
+    
     return (
-        <div className='flex h-screen'>
-            <aside className='w-72'>
-                <Sidebar />
-            </aside>
+        <>
+            <div className='flex h-screen'>
+                <aside className='w-72'>
+                    <Sidebar />
+                </aside>
+                
+                <main className='flex-1 overflow-auto'>
+                    <Outlet />
+                </main>
+                
+                <aside className='w-72 overflow-auto'>
+                    <Summary />
+                </aside>
             
-            <main className='flex-1 overflow-auto'>
-                <Outlet />
-            </main>
+            </div>
 
-            <aside className='w-72 overflow-auto'>
-                <Summary />
-            </aside>
-            
-        </div>
+            <Modal isOpen={modal} style={customStyles}>
+                <ModalProduct />
+            </Modal>
+
+        </>
     )
 }
