@@ -10,7 +10,7 @@ export default function Index() {
     return (
         <div className="h-full overflow-auto">
 
-            <div className="sticky top-0 bg-white z-10 p-5">
+            <div className="sticky z-auto top-0 bg-white p-5">
                 <h1 className="font-medium text-2xl">
                     {currentCategory.nombre}
                 </h1>

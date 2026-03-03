@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import KioskContext from "../contexts/kioskProvider";
+import KioskContext from "../contexts/KioskProvider";
 
 const useKiosk = () => {
     return useContext(KioskContext);

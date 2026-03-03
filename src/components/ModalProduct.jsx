@@ -1,12 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useKiosk from "../hooks/useKiosk";
 
 export default function ModalProduct() {
 
-    const { handleClickModal, product } = useKiosk();
-    const [quantity, setQuantity] = useState(1);
+    const { handleClickModal, product, handleAddOrder, order } = useKiosk();
+    const [ quantity, setQuantity] = useState(1);
+    const [ edit, setEdit] = useState(false);
 
-    if (!product) return null;
+    useEffect(() => {
+        if (order.some(o => o.id === product.id)) {
+            const p = order.filter( o => o.id === product.id)[0];
+            setQuantity(p.quantity);
+            setEdit(true);
+        }
+    },[order]);
 
     return (
         <div className="relative bg-white p-6 rounded-2xl max-w-md mx-auto">
@@ -77,8 +84,8 @@ export default function ModalProduct() {
 
                 </div>
                 
-                <button type="button" className="w-full bg-amber-500 hover:bg-amber-600 text-white py-3 rounded font-bold transition-colors cursor-pointer">
-                    Agregar al pedido
+                <button onClick={() => { handleAddOrder({...product, quantity}); handleClickModal() }} type="button" className="w-full bg-amber-500 hover:bg-amber-600 text-white py-3 rounded font-bold transition-colors cursor-pointer">
+                    { edit ? 'Guardar cambios' : 'Agregar al pedido'}
                 </button>
             </div>
         </div>

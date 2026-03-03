@@ -28,7 +28,7 @@ export default function Sidebar() {
                     type="button"
                     className="bg-red-500 hover:bg-red-600 transition-colors duration-300 ease-linear text-white p-2 rounded w-full cursor-pointer"
                 >
-                    Cancelar
+                    Salir
                 </button>
             </div>
 

@@ -1,6 +1,10 @@
+import useKiosk from "../hooks/useKiosk";
+import SummaryProduct from "./SummaryProduct";
+
 export default function Summary() {
 
-    const car = [];
+    const { order, total } = useKiosk();
+    const isDisabled = () => order.length === 0;
 
     return (
         <div className="flex flex-col h-full p-5">
@@ -10,7 +14,7 @@ export default function Summary() {
                 <p className='mt-1'>Aquí podrás ver el resumen y totales de tu pedido</p>
             </div>
 
-            { car.length === 0 ? (
+            { order.length === 0 ? (
 
                 <div className="flex-1 flex flex-col items-center justify-center mt-4 text-center">
                     <svg 
@@ -33,15 +37,30 @@ export default function Summary() {
                     </p>
                 </div>
             ) : (
-                <div className="flex-1 flex flex-col items-center justify-start mt-4 text-center">
-                    <p className="text-gray-400 text-sm mt-1">
-                        Carrito lleno de comida
-                    </p>
+                <div className="flex-1 mt-4 overflow-auto">
+                    {order.map( product => (
+                        <SummaryProduct key={product.id} product={product} />
+                    ))}
                 </div>
             ) }
 
             <div className="mt-4">
-                <button type="button" className="bg-green-500 hover:bg-green-600 ease-linear duration-300 transition-colors cursor-pointer text-white p-2 rounded w-full">Confirmar pedido</button>
+                <p>
+                    Total: ${total.toFixed(2)}
+                </p>
+                <button
+                    type="submit"
+                    disabled={isDisabled()}
+                    className={`
+                        mt-4 text-white p-2 rounded w-full transition-colors duration-300
+                        ${isDisabled() 
+                            ? "bg-green-300 cursor-not-allowed opacity-70" 
+                            : "bg-green-500 hover:bg-green-600 cursor-pointer"
+                        }
+                    `}
+                >
+                    Confirmar pedido
+                </button>
             </div>
         </div>
     )

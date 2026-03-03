@@ -1,9 +1,11 @@
+import { useEffect, useState } from "react";
 import useKiosk from "../hooks/useKiosk";
 
 export default function Product({product}) {
     
-    const { handleClickModal, handleSetProduct } = useKiosk();
+    const { handleClickModal, handleSetProduct, order } = useKiosk();
     const { nombre, precio, imagen, categoria_id, id} = product;
+    const isInOrder = order.some(o => o.id === id);
 
     return (
         <>
@@ -13,7 +15,7 @@ export default function Product({product}) {
                     <h3 className="text-center text-sm font-medium">{nombre}</h3>
                     <p className="text-center font-bold mt-3 text-2xl text-amber-500">${precio}</p>
                 </div>
-                <button type="button" onClick={ () => { handleClickModal(); handleSetProduct(product); }} className="bg-amber-500 hover:bg-amber-600 ease-linear duration-300 transition-colors cursor-pointer text-white p-2 rounded w-full">Agregar</button>
+                <button type="button" onClick={ () => { handleClickModal(); handleSetProduct(product); }} className={`${isInOrder ? 'bg-amber-700' : 'bg-amber-400'} hover:bg-amber-700 ease-linear duration-300 transition-colors cursor-pointer text-white p-2 rounded w-full`}>{isInOrder ? 'Editar' : 'Agregar'}</button>
             </div>
         </>
     )
