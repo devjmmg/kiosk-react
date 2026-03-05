@@ -1,13 +1,13 @@
 import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { categories as categoriesDB } from "../data/categories"
+import api from "../../config/api";
 
 const KioskContext = createContext();
 
 const KioskProvider = ({children}) => {
 
-    const [categories, setCategory] = useState(categoriesDB); // Valor inicial
-    const [currentCategory, setCurrentCategory] = useState(categories[0]);
+    const [categories, setCategory] = useState([]); // Valor inicial
+    const [currentCategory, setCurrentCategory] = useState({});
     const [modal, setModal] = useState(false);
     const [product, setProduct] = useState({});
     const [order, setOrder] = useState([]);
@@ -21,6 +21,20 @@ const KioskProvider = ({children}) => {
             )
         );
     },[order]);
+
+    const getCategories = async () => {
+        try {
+            const { data } = await api.get('/api/categories');
+            setCategory(data.data);
+            setCurrentCategory(data.data[0])
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect( () => {
+        getCategories();
+    },[]);
 
     const handleClickCategory = id => {
         const category = categories.filter( c  => c.id === id)[0];
