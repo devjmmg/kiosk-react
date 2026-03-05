@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { RouterProvider } from "react-router-dom";
-import { KioskProvider } from './contexts/kioskProvider';
+import { KioskProvider } from './contexts/KioskProvider';
 import router from './router';
 import './app.css'
 

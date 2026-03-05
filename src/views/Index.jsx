@@ -1,11 +1,35 @@
-import { products as productsDB } from '../data/products';
+import useSWR from 'swr';
 import Product from '../components/Product';
 import useKiosk from '../hooks/useKiosk';
+import api from '../../config/api';
+// import { useEffect, useState } from 'react';
 
 export default function Index() {
 
     const { currentCategory } = useKiosk();
-    const products = productsDB.filter( p => p.categoria_id === currentCategory.id );
+
+    const fetcher = () => api.get('/api/products').then(res => res.data.data);
+    const { data, error, isLoading } = useSWR('/api/products', fetcher, {
+        refreshInterval: 1000
+    });
+
+    // const [ productsDB, setProductsDB ] = useState([]);
+
+    // const getProducts = async () => {
+    //     try {
+    //         const { data } = await api.get('/api/products');
+    //         setProductsDB(data.data);
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
+
+    // useEffect( () => {
+    //     getProducts();
+    // },[]);
+
+    if (isLoading) return "Cargando ...";
+    const products = data.filter( p => p.category_id === currentCategory.id );
 
     return (
         <div className="h-full overflow-auto">
