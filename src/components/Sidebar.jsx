@@ -4,7 +4,7 @@ import Category from "./Category"
 
 export default function Sidebar() {
 
-    const { logout } = useAuth({middleware: 'auth'});
+    const { logout, user } = useAuth({middleware: 'auth'});
     const { categories } = useKiosk();
 
     return (
@@ -14,6 +14,8 @@ export default function Sidebar() {
             <div className="flex justify-center">
                 <img src="/img/logo.svg" className="w-48" alt="Logo" />
             </div>
+
+            <p className="mt-4 text-center">Hola {user && user.name}</p>
 
             {/* Categorías */}
             <div className="flex-1 overflow-auto mt-4">
