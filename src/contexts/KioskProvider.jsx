@@ -65,8 +65,45 @@ const KioskProvider = ({children}) => {
         }
     }
 
+    const handleSubmitNewOrder = async () => {
+        const token = localStorage.getItem('AUTH_TOKEN');
+        try {
+            const response = await api.post('/api/order', { 
+                total, 
+                products: order.map( product => {
+                    return {
+                        id: product.id,
+                        quantity: product.quantity,
+                        subtotal: product.quantity * product.precio
+                    }
+                })
+            }, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            toast.success(response.data.message);
+            setOrder([]);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     return (
-        <KioskContext.Provider value={{ categories, currentCategory, handleClickCategory, modal, handleClickModal, product, handleSetProduct, order, handleAddOrder, handleDeleteProduct, total }}>
+        <KioskContext.Provider value={{
+                categories,
+                currentCategory,
+                handleClickCategory,
+                modal,
+                handleClickModal,
+                product,
+                handleSetProduct,
+                order,
+                handleAddOrder,
+                handleDeleteProduct,
+                total,
+                handleSubmitNewOrder
+            }}>
             {children}
         </KioskContext.Provider>
     );

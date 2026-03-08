@@ -3,7 +3,11 @@ import SummaryProduct from "./SummaryProduct";
 
 export default function Summary() {
 
-    const { order, total } = useKiosk();
+    const { order, total, handleSubmitNewOrder } = useKiosk();
+    const handleSubmit = e => {
+        e.preventDefault();
+        handleSubmitNewOrder();
+    }
     const isDisabled = () => order.length === 0;
 
     return (
@@ -44,11 +48,12 @@ export default function Summary() {
                 </div>
             ) }
 
-            <div className="mt-4">
+            <form onClick={handleSubmit} className="mt-4">
                 <p>
                     Total: ${total.toFixed(2)}
                 </p>
                 <button
+                    
                     type="submit"
                     disabled={isDisabled()}
                     className={`
@@ -61,7 +66,7 @@ export default function Summary() {
                 >
                     Confirmar pedido
                 </button>
-            </div>
+            </form>
         </div>
     )
 }
