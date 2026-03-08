@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import Layout from "./layouts/Layout";
 import AuthLayout from "./layouts/AuthLayout";
 import Index from "./views/Index";
@@ -20,6 +20,10 @@ const router = createBrowserRouter([
         path: '/auth',
         element: <AuthLayout />,
         children: [
+            {
+                index: true,
+                element: <Navigate to="/auth/login" />
+            },
             {
                 path: '/auth/login',
                 element: <Login />

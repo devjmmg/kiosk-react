@@ -1,8 +1,10 @@
+import useAuth from "../hooks/useAuth";
 import useKiosk from "../hooks/useKiosk"
 import Category from "./Category"
 
 export default function Sidebar() {
 
+    const { logout } = useAuth({middleware: 'auth'});
     const { categories } = useKiosk();
 
     return (
@@ -25,6 +27,7 @@ export default function Sidebar() {
             {/* Botón abajo */}
             <div className="mt-4">
                 <button
+                    onClick={logout}
                     type="button"
                     className="bg-red-500 hover:bg-red-600 transition-colors duration-300 ease-linear text-white p-2 rounded w-full cursor-pointer"
                 >
