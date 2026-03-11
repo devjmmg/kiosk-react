@@ -1,8 +1,8 @@
 
 import useSWR from "swr";
 import api from "../../config/api";
-import { use, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const useAuth = ({middleware, url}) => {
 
@@ -55,16 +55,35 @@ const useAuth = ({middleware, url}) => {
         }
     }
 
-    useEffect( () => {
-        if ( middleware === 'guest' && url && user ) {
-            navigate(url);
-        }
-        if ( middleware === 'auth' && (error || !token ) ) {
-            localStorage.removeItem('AUTH_TOKEN');
-            navigate('/auth/login');
+    const location = useLocation();
+
+    useEffect(() => {
+
+        // Si es admin pero está fuera del panel admin
+        if (user?.admin && !location.pathname.startsWith('/admin')) {
+            navigate('/admin/order');
+            return;
         }
 
-    },[user, error, token]);
+        // Si intenta entrar a admin sin ser admin
+        if (middleware === 'admin' && user && !user?.admin) {
+            navigate('/');
+            return;
+        }
+
+        // Si es guest pero ya está logueado
+        if (middleware === 'guest' && user && url) {
+            navigate(url);
+            return;
+        }
+
+        // Si necesita auth/admin pero no hay token
+        if ((middleware === 'auth' || middleware === 'admin') && (error || !token)) {
+            localStorage.removeItem('AUTH_TOKEN');
+            navigate('/login');
+        }
+
+    }, [user, error, token, middleware, url, navigate, location]);
 
     return {
         login,

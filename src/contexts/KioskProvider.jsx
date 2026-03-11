@@ -23,18 +23,21 @@ const KioskProvider = ({children}) => {
     },[order]);
 
     const getCategories = async () => {
+        const token = localStorage.getItem('AUTH_TOKEN');
         try {
-            const { data } = await api.get('/api/categories');
-            setCategory(data.data);
-            setCurrentCategory(data.data[0])
+            const { data } = await api.get('/api/category', {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            const categories = data.data ?? [];
+            setCategory(categories);
+            setCurrentCategory(categories[0] ?? null);
+
         } catch (error) {
             console.log(error);
         }
-    }
-
-    useEffect( () => {
-        getCategories();
-    },[]);
+    };
 
     const handleClickCategory = id => {
         const category = categories.filter( c  => c.id === id)[0];
@@ -89,6 +92,34 @@ const KioskProvider = ({children}) => {
         }
     }
 
+    const handleClickCompleteOrder = async (id) => {
+        const token = localStorage.getItem('AUTH_TOKEN');
+        try {
+            const { data } = await api.put(`/api/order/${id}`,  {}, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            toast.success(`Orden ${data} completado`);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const handleClickOutOfStockProduct = async (id) => {
+        const token = localStorage.getItem('AUTH_TOKEN');
+        try {
+            const { data } = await api.put(`/api/product/${id}`,  {}, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            toast.success(`Producto ${data} actualizado`);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     return (
         <KioskContext.Provider value={{
                 categories,
@@ -102,7 +133,10 @@ const KioskProvider = ({children}) => {
                 handleAddOrder,
                 handleDeleteProduct,
                 total,
-                handleSubmitNewOrder
+                handleSubmitNewOrder,
+                handleClickCompleteOrder,
+                handleClickOutOfStockProduct,
+                getCategories
             }}>
             {children}
         </KioskContext.Provider>

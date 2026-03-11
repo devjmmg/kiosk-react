@@ -4,6 +4,9 @@ import AuthLayout from "./layouts/AuthLayout";
 import Index from "./views/Index";
 import Login from "./views/Login";
 import Register from "./views/Register";
+import AdminLayout from "./layouts/AdminLayout";
+import Order from "./views/Order";
+import Product from "./views/Product";
 
 const router = createBrowserRouter([
     {
@@ -17,20 +20,38 @@ const router = createBrowserRouter([
         ]
     },
     {
-        path: '/auth',
+        // path: '/auth',
         element: <AuthLayout />,
         children: [
             {
                 index: true,
-                element: <Navigate to="/auth/login" />
+                element: <Navigate to="login" />
             },
             {
-                path: '/auth/login',
+                path: 'login',
                 element: <Login />
             },
             {
-                path: '/auth/register',
+                path: 'register',
                 element: <Register />
+            }
+        ]
+    },
+    {
+        path: '/admin',
+        element: <AdminLayout />,
+        children: [
+            {
+                index: true,
+                element: <Navigate to="order" />
+            },
+            { 
+                path: 'order', 
+                element: <Order /> 
+            },
+            { 
+                path: 'product', 
+                element: <Product /> 
             }
         ]
     }

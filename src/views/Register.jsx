@@ -1,6 +1,5 @@
 import { createRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import api from '../../config/api';
 import useAuth from '../hooks/useAuth';
 
 export default function Register() {
@@ -14,9 +13,9 @@ export default function Register() {
 
     const [ errors, setErrors ] = useState([]);
     const { register } = useAuth({
-            middleware: 'guest',
-            url: '/'
-        });
+        middleware: 'guest',
+        url: '/'
+    });
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -110,7 +109,7 @@ export default function Register() {
 
                 <div className="mt-5 text-center">
                     <p>Ya tienes una cuenta?
-                        <Link to="/auth/login" className="text-amber-400 hover:text-amber-600 transition ease-linear duration-300"> Iniciar sesión</Link>
+                        <Link to="/login" className="text-amber-400 hover:text-amber-600 transition ease-linear duration-300"> Iniciar sesión</Link>
                     </p>
                 </div>
 

@@ -1,6 +1,10 @@
-import { Outlet } from "react-router-dom"
+import { Outlet, useActionData } from "react-router-dom"
+import useAuth from "../hooks/useAuth"
 
 export default function Authlayout() {
+
+    useAuth({middleware: 'guest', url: '/'});
+
     return (
         <main className="lg:h-screen flex items-center justify-center my-10 lg:my-0">
             <div className="w-full md:max-w-3/4 lg:max-w-5xl flex flex-col lg:flex-row gap-5 md:gap-10">

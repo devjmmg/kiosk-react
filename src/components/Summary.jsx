@@ -53,7 +53,6 @@ export default function Summary() {
                     Total: ${total.toFixed(2)}
                 </p>
                 <button
-                    
                     type="submit"
                     disabled={isDisabled()}
                     className={`

@@ -8,10 +8,7 @@ export default function Login() {
     const passwordRef = createRef();
 
     const [ errors, setErrors ] = useState([]);
-    const { login } = useAuth({
-        middleware: 'guest',
-        url: '/'
-    });
+    const { login } = useAuth({ middleware: 'guest', url: '/' });
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -59,7 +56,7 @@ export default function Login() {
                 
                 <div className="mt-5 text-center">
                     <p>¿No tienes una cuenta?
-                        <Link to="/auth/register" className="text-amber-400 hover:text-amber-600 transition ease-linear duration-300"> Crear cuenta</Link>
+                        <Link to="/register" className="text-amber-400 hover:text-amber-600 transition ease-linear duration-300"> Crear cuenta</Link>
                     </p>
                 </div>
 

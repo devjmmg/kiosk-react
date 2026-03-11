@@ -23,10 +23,10 @@ const customStyles = {
 
 Modal.setAppElement('#root');
 
-export default function layout() {
+export default function Layout() {
     
-    const { user, error } = useAuth({middleware: 'auth'});
     const { modal } = useKiosk();
+    useAuth({middleware: 'auth', url: '/'});
     
     return (
         <>
@@ -42,7 +42,6 @@ export default function layout() {
                 <aside className='w-72'>
                     <Summary />
                 </aside>
-            
             </div>
 
             <Modal isOpen={modal} style={customStyles}>
